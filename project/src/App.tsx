@@ -11,13 +11,14 @@ import Podcasts from './pages/Podcasts';
 import Blog from './pages/Blog';
 import Testimonials from './pages/Testimonials';
 import Contact from './pages/Contact';
-import AdmissionForm from './pages/AdmissionForm';
+import AdmissionForm from './forms/AdmissionForm.tsx';
 import CounsellingForm from './pages/CounsellingForm';
 import Register from './components/Register.tsx';
 import Login from './components/Login.tsx';
 import ForgotPassword from "./components/ForgotPassword.tsx";
 import ResetPassword from "./components/ResetPassword.tsx";
 import Dashboard from './components/layout/Dashboard.tsx';
+import AdminApplicationTable from "./components/layout/AdminApplicationTable.tsx";
 import CollegeAdmissionForm from './forms/CollegeAdmissionForm';
 import PrePrimarytoHigherForm from './forms/PrePrimarytoHigherForm';
 import PersonalizedCounselingForm from './forms/PersonalizedCounselingForm';
@@ -44,12 +45,14 @@ function App() {
             <Route path="/forgot-password" element={<ForgotPassword />} />
             <Route path="/reset-password/:token" element={<ResetPassword />} />
             <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/admin/applications" element={<AdminApplicationTable />} />
+            <Route path="/AdminApplicationTable" element={<AdminApplicationTable />} />
+            <Route path="/college-admission" element={<AdmissionForm />} />
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
             <Route path="/counselling" element={<Counselling />} />
             <Route path="/counsellingform" element={<CounsellingForm />} />
             <Route path="/admissions" element={<Admissions />} />
-            <Route path="/admissionsform" element={<AdmissionForm />} />
             <Route path="/directory" element={<Directory />} />
             <Route path="/virtual-tour" element={<VirtualTour />} />
             <Route path="/podcasts" element={<Podcasts />} />

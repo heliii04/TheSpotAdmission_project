@@ -19,7 +19,7 @@ const CollegeAdmissionForm = () => {
   const navigate = useNavigate();
 
   const initialData = {
-  sname: "", dob: "", gender: "", scontact: "", semail: "",fatherName:"", fatherContact:"", fatherOcc:"", motherName:"", motherContact:"", motherOcc:"", parentEmail:"",
+  fullName: "", dob: "", gender: "", contact: "", email: "",fatherName:"", fatherContact:"", fatherOcc:"", motherName:"", motherContact:"", motherOcc:"", parentEmail:"",
   address: "", country: "India", city: "", state: "", pincode: "",
   admissionLevel: "", boardSeatNo: "", boardName: "", yearOfPassing: "",
   tenthPercent: "", twelfthPercent: "", degree: "", 
@@ -33,7 +33,7 @@ const [formData, setFormData] = useState(initialData);
 
   // Required fields list
   const requiredFields = [
-    "sname", "scontact", "semail", 
+    "fullName", "contact", "email", 
     "address", "pincode", 
     "admissionLevel", "boardSeatNo", "boardName", "yearOfPassing", "degree"
   ];
@@ -100,6 +100,7 @@ const [formData, setFormData] = useState(initialData);
   const labelStyle = "text-xs font-bold uppercase tracking-wider text-slate-500 mb-1 block ml-1";
 
   return (
+    
     <div className="min-h-screen bg-[#F8FAFC] py-12 px-4 font-sans">
       <ToastContainer position="top-center" />
 
@@ -127,15 +128,15 @@ const [formData, setFormData] = useState(initialData);
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               <div className="md:col-span-2">
                 <label className={labelStyle}>Student Name</label>
-                <input name="sname" value={formData.sname} onChange={handleChange} className={getFieldStyle("sname")} placeholder="e.g. Rahul Sharma" />
+                <input name="fullName" value={formData.fullName} onChange={handleChange} className={getFieldStyle("fullName")} placeholder="e.g. Rahul Sharma" />
               </div>
               <div>
                 <label className="text-xs font-bold uppercase tracking-wider text-gray-500">Student Contact</label>
-                <input name="scontact" maxLength={10} value={formData.scontact} onChange={handleChange} className={getFieldStyle("scontact")} placeholder="10 Digit Number" />
+                <input name="contact" maxLength={10} value={formData.contact} onChange={handleChange} className={getFieldStyle("contact")} placeholder="10 Digit Number" />
               </div>
               <div>
                 <label className="text-xs font-bold uppercase tracking-wider text-gray-500">Student Email</label>
-                <input name="semail" type="email" value={formData.semail} onChange={handleChange} className={getFieldStyle("semail")} placeholder="rahul@example.com" />
+                <input name="email" type="email" value={formData.email} onChange={handleChange} className={getFieldStyle("email")} placeholder="rahul@example.com" />
               </div>
               <div>
                 <label className="text-xs font-bold uppercase tracking-wider text-gray-500">Date of Birth</label>
@@ -154,19 +155,19 @@ const [formData, setFormData] = useState(initialData);
               {/* Parents Details */}
               <div className="p-4 bg-slate-50 rounded-2xl border border-dashed border-gray-200">
                 <label className="text-xm font-bold text-indigo-600">Father's Info</label>
-                <input placeholder="Name" value={formData.fatherName} onChange={handleChange} className={`${getFieldStyle("fatherName")} mb-2`} />
-                <input placeholder="Occupation" value={formData.fatherOcc} onChange={handleChange} className={getFieldStyle("fatherOcc")} />
-                <input placeholder="Contact" maxLength={10} value={formData.fatherContact} onChange={handleChange} className={`${getFieldStyle("fatherContact")} mt-2`} />
+                <input placeholder="Name" name="fatherName" value={formData.fatherName} onChange={handleChange} className={`${getFieldStyle("fatherName")} mb-2`} />
+                <input placeholder="Occupation" name="fatherOcc" value={formData.fatherOcc} onChange={handleChange} className={getFieldStyle("fatherOcc")} />
+                <input placeholder="Contact" name="fatherContact" maxLength={10} value={formData.fatherContact} onChange={handleChange} className={`${getFieldStyle("fatherContact")} mt-2`} />
               </div>
               <div className="p-4 bg-slate-50 rounded-2xl border border-dashed border-gray-200">
                 <label className="text-xm font-bold text-indigo-600">Mother's Info</label>
-                <input placeholder="Name" value={formData.motherName} onChange={handleChange} className={`${getFieldStyle("motherName")} mb-2`} />
-                <input placeholder="Occupation" value={formData.motherOcc} onChange={handleChange} className={getFieldStyle("motherOcc")} />
-                <input placeholder="Contact" maxLength={10} value={formData.motherContact} onChange={handleChange} className={`${getFieldStyle("motherContact")} mt-2`} />
+                <input placeholder="Name" name="motherName" value={formData.motherName} onChange={handleChange} className={`${getFieldStyle("motherName")} mb-2`} />
+                <input placeholder="Occupation" name="motherOcc" value={formData.motherOcc} onChange={handleChange} className={getFieldStyle("motherOcc")} />
+                <input placeholder="Contact" name="motherContact" maxLength={10} value={formData.motherContact} onChange={handleChange} className={`${getFieldStyle("motherContact")} mt-2`} />
               </div>
               <div>
                 <label className="text-xs font-bold uppercase tracking-wider text-gray-500">Parent Email</label>
-                <input value={formData.parentEmail} onChange={handleChange} placeholder="name@gmail.com" className={getFieldStyle("parentEmail")} />
+                <input name="parentEmail" type="email" value={formData.parentEmail} onChange={handleChange} className={getFieldStyle("parentEmail")} placeholder="name@example.com" />
               </div>
             </div>
           </section>
@@ -327,13 +328,13 @@ const [formData, setFormData] = useState(initialData);
             </div>
             
             <h1 className="text-4xl md:text-6xl font-black text-slate-900 mb-6 tracking-tighter">
-              CONGRATS, <span className="text-indigo-600 uppercase">{formData.sname.split(' ')[0]}!</span>
+              CONGRATS, <span className="text-indigo-600 uppercase">{formData.fullName.split(' ')[0]}!</span>
             </h1>
             
             <p className="text-slate-500 text-lg max-w-xl mx-auto leading-relaxed font-medium mb-12">
               Your application has been successfully registered. Our team will send a 
               <span className="text-indigo-900 font-bold"> confirmation mail </span> 
-              to {formData.semail} shortly.
+              to {formData.email} shortly.
             </p>
 
             <div className="flex flex-col md:flex-row gap-6 justify-center items-center">

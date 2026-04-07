@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-// Link aur useNavigate dono ko import karna zaroori hai
 import { useNavigate, Link } from "react-router-dom";
 import axiosInstance from "../api/Api";
 
@@ -123,7 +122,8 @@ const Register: React.FC = () => {
             >
               <option value="">Select</option>
               <option value="parent">Parent</option>
-              <option value="school">School</option>
+              {/* <option value="school">school</option> */}
+              <option value="student">Student</option>
               <option value="counsellor">Counsellor</option>
               <option value="admin">Admin</option>
             </select>

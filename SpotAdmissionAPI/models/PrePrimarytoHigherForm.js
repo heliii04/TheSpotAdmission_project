@@ -11,6 +11,10 @@ const PrePrimarytoHigherFormSchema = new mongoose.Schema(
     contact: String,
     email: String,
     address: String,
+    country:String,
+    city:String,
+    state:String,
+    pincode:Number,
 
     fatherName: String,
     fatherOcc: String,
@@ -24,21 +28,10 @@ const PrePrimarytoHigherFormSchema = new mongoose.Schema(
     favoriteSubjects: String,
     difficultSubjects: String,
     attendance: String,
-
-    behavior: String,
-    social: String,
-    emotional: String,
-    incidents: String,
-
     counselingTypes: [String],
-    reason: String,
-    expectations: String,
 
     counselorName: String,
     counselingDate: String,
-    observations: String,
-    recommendations: [String],
-    nextSession: String,
   },
   { timestamps: true }
 );

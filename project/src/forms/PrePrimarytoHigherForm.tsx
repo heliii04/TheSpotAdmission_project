@@ -16,37 +16,35 @@ const locationData: Record<string, string[]> = {
 };
 
 // --- Types & Interfaces ---
-type AcademicPerf = "Excellent" | "Good" | "Average" | "Needs Improvement";
-type BehaviorOption = "Cooperative" | "Quiet" | "Hyperactive" | "Distracted" | "Aggressive";
-type SocialOption = "Friendly" | "Shy" | "Prefers Isolation" | "Seeks Attention";
-type EmotionalOption = "Happy" | "Anxious" | "Sad" | "Irritable" | "Withdrawn";
+// type AcademicPerf = "Excellent" | "Good" | "Average" | "Needs Improvement";
+// type BehaviorOption = "Cooperative" | "Quiet" | "Hyperactive" | "Distracted" | "Aggressive";
+// type SocialOption = "Friendly" | "Shy" | "Prefers Isolation" | "Seeks Attention";
+// type EmotionalOption = "Happy" | "Anxious" | "Sad" | "Irritable" | "Withdrawn";
 
+// --- Types & Interfaces ---
 interface FormState {
-  sname: string; semail: string; scontact: string; dob: string; gender: string;
+  fullName: string; email: string; contact: string; dob: string; gender: string;
   fatherName: string; fatherOcc: string; motherName: string; motherOcc: string;
   parentEmail: string; fatherContact: string; motherContact: string;
   address: string; city: string; state: string; pincode: string; country: string;
-  class: string; board: string; ABCId: string; Seatno: string; section: string; rollNo: string;
+  class: string; board: string; ABCId: string; Seatno: string;
   favoriteSubjects: string; difficultSubjects: string;
-  attendance: "Regular" | "Occasional" | "Irregular" | ""; hear: string;
-  academicPerformance: AcademicPerf | "";
-  behavior: BehaviorOption | ""; social: SocialOption | ""; emotional: EmotionalOption | "";
-  incidents: string; counselingTypes: string[]; reason: string; expectations: string;
-  counselorName: string; counselingDate: string; observations: string;
-  recommendations: string[]; nextSession: string; declare: boolean;
+  // FIX 1: Interface mein sirf simple string type aayega
+  attendance: "Regular" | "Occasional" | "Irregular" | ""; 
+  counselingTypes: string[]; 
+  counselorName: string; counselingDate: string; declare: boolean;
 }
 
 const defaultState: FormState = {
-  sname: "", semail: "", scontact: "", dob: "", gender: "",
+  fullName: "", email: "", contact: "", dob: "", gender: "",
   fatherName: "", fatherOcc: "", motherName: "", motherOcc: "",
   parentEmail: "", fatherContact: "", motherContact: "",
   address: "", city: "", state: "", pincode: "", country: "India",
-  class: "", board: "", ABCId: "", Seatno: "", section: "", rollNo: "",
-  favoriteSubjects: "", difficultSubjects: "", attendance: "", hear: "",
-  academicPerformance: "", behavior: "", social: "", emotional: "",
-  incidents: "", counselingTypes: [], reason: "", expectations: "",
-  counselorName: "", counselingDate: "", observations: "",
-  recommendations: [], nextSession: "", declare: false
+  class: "", board: "", ABCId: "", Seatno: "",
+  favoriteSubjects: "", difficultSubjects: "", 
+  attendance: "", 
+  counselingTypes: [],
+  counselorName: "", counselingDate: "", declare: false
 };
 
 export default function PrePrimarytoHigherForm() {
@@ -62,16 +60,16 @@ export default function PrePrimarytoHigherForm() {
 
   const validate = () => {
     const e: Record<string, string> = {};
-    const nameWords = form.sname.trim().split(/\s+/);
+    const nameWords = form.fullName.trim().split(/\s+/);
 
-    if (!form.sname) e.sname = "Required";
+    if (!form.fullName) e.sname = "Required";
     if (!form.address) e.address = "Required";
     if (!form.class) e.class = "Required";
     if (!form.board) e.board = "Required";
     else if (nameWords.length > 2) e.sname = "Max 2 words only";
     
-    if (!form.semail.endsWith("@gmail.com")) e.semail = "Must be @gmail.com";
-    if (form.scontact.length !== 10) e.scontact = "Must be 10 digits";
+    if (!form.email.endsWith("@gmail.com")) e.email = "Must be @gmail.com";
+    if (form.contact.length !== 10) e.scontact = "Must be 10 digits";
     if (form.pincode.length !== 6) e.pincode = "Must be 6 digits";
     
     if ((form.class.includes("9 to 10") || form.class.includes("11 to 12")) && !form.Seatno) {
@@ -138,18 +136,18 @@ export default function PrePrimarytoHigherForm() {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               <div className="md:col-span-2">
                 <label className="text-xs font-bold uppercase tracking-wider text-gray-500">Student Name </label>
-                <input value={form.sname} onChange={(e) => update("sname", e.target.value)} className={getInputClass("sname")} placeholder="e.g. Rahul Sharma" />
-                {errors.sname && <p className="text-blue-500 text-[10px] font-bold mt-1 uppercase">{errors.sname}</p>}
+                <input value={form.fullName} onChange={(e) => update("fullName", e.target.value)} className={getInputClass("fullName")} placeholder="e.g. Rahul Sharma" />
+                {errors.fullName && <p className="text-blue-500 text-[10px] font-bold mt-1 uppercase">{errors.fullName}</p>}
               </div>
               <div>
                 <label className="text-xs font-bold uppercase tracking-wider text-gray-500">Student Contact</label>
-                <input maxLength={10} value={form.scontact} onChange={(e) => update("scontact", e.target.value.replace(/\D/g, ""))} placeholder="10 Digit Number" className={getInputClass("scontact")} />
-                {errors.scontact && <p className="text-blue-500 text-[10px] font-bold mt-1 uppercase">{errors.scontact}</p>}
+                <input maxLength={10} value={form.contact} onChange={(e) => update("contact", e.target.value.replace(/\D/g, ""))} placeholder="10 Digit Number" className={getInputClass("contact")} />
+                {errors.contact && <p className="text-blue-500 text-[10px] font-bold mt-1 uppercase">{errors.contact}</p>}
               </div>
               <div>
                 <label className="text-xs font-bold uppercase tracking-wider text-gray-500">Student Email</label>
-                <input value={form.semail} onChange={(e) => update("semail", e.target.value)} className={getInputClass("semail")} placeholder="name@gmail.com" />
-                {errors.semail && <p className="text-blue-500 text-[10px] font-bold mt-1 uppercase">{errors.semail}</p>}
+                <input value={form.email} onChange={(e) => update("email", e.target.value)} className={getInputClass("email")} placeholder="name@gmail.com" />
+                {errors.email && <p className="text-blue-500 text-[10px] font-bold mt-1 uppercase">{errors.email}</p>}
               </div>
               <div>
                 <label className="text-xs font-bold uppercase tracking-wider text-gray-500">Date of Birth</label>
@@ -314,12 +312,12 @@ export default function PrePrimarytoHigherForm() {
             </div>
             
             <h1 className="text-4xl md:text-6xl font-black text-slate-900 mb-6 tracking-tighter">
-              AWESOME, <span className="text-indigo-600 uppercase">{form.sname.split(' ')[0]}!</span>
+              AWESOME, <span className="text-indigo-600 uppercase">{form.fullName.split(' ')[0]}!</span>
             </h1>
             
             <p className="text-slate-500 text-lg max-w-xl mx-auto leading-relaxed font-medium mb-12">
               Your application has been successfully registered. Our team will send a  <span className="text-indigo-900 font-bold">confirmation mail 
-                </span> to {form.semail} shortly.
+                </span> to {form.email} shortly.
             </p>
 
             <div className="flex flex-col md:flex-row gap-6 justify-center items-center">

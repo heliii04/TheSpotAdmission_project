@@ -5,7 +5,7 @@ const {
   getAppointments,
   updateAppointment,
   deleteAppointment,
-} = require("../controllers/counselingController");
+} = require("../controllers/counselingFormController");
 
 // CREATE
 router.post("/", createAppointment);

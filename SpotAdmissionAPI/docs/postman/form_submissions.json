@@ -1,0 +1,31 @@
+{
+  "contactForm": {
+    "name": "Jane Smith",
+    "email": "jane@example.com",
+    "phone": "9876543210",
+    "subject": "Admission Query",
+    "message": "I would like to know more about the admission process for 2026."
+  },
+  "careerForm": {
+    "name": "John Doe",
+    "email": "john.work@example.com",
+    "phone": "8887776665",
+    "position": "Senior Counselor",
+    "experience": "5 Years",
+    "resumeLink": "http://drive.google.com/resume"
+  },
+  "admissionForm": {
+    "studentName": "Rahul Kumar",
+    "fatherName": "Rajesh Kumar",
+    "class": "10th",
+    "previousSchool": "DPS Delhi",
+    "email": "rahul.parent@example.com"
+  },
+  "personalizedCounseling": {
+    "name": "Amit Sharma",
+    "email": "amit@example.com",
+    "phone": "7778889991",
+    "interestedCourse": "Computer Science",
+    "currentEducation": "12th Standard"
+  }
+}

@@ -1,0 +1,607 @@
+{
+  "meta": {
+    "base": "http://localhost:5000"
+  },
+  "results": [
+    {
+      "action": "register_user",
+      "email": "user_1775648530482@example.com",
+      "res": {
+        "status": 201,
+        "body": {
+          "_id": "69d63f126e607cb746abc205",
+          "name": "User",
+          "email": "user_1775648530482@example.com",
+          "role": "parent",
+          "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5ZDYzZjEyNmU2MDdjYjc0NmFiYzIwNSIsImlhdCI6MTc3NTY0ODUzMCwiZXhwIjoxNzc4MjQwNTMwfQ.96qjaj1ri6rXR-C-gpxJ1c4O3TX4ExSfDO6cCo_n1Xw"
+        }
+      }
+    },
+    {
+      "action": "register_admin",
+      "email": "admin_1775648530482@example.com",
+      "res": {
+        "status": 201,
+        "body": {
+          "_id": "69d63f126e607cb746abc208",
+          "name": "Admin",
+          "email": "admin_1775648530482@example.com",
+          "role": "admin",
+          "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5ZDYzZjEyNmU2MDdjYjc0NmFiYzIwOCIsImlhdCI6MTc3NTY0ODUzMCwiZXhwIjoxNzc4MjQwNTMwfQ.r5NSUteqgqevJxXtB4CQ15r0A6_MIOe4ISlWrETPdLk"
+        }
+      }
+    },
+    {
+      "action": "login_user",
+      "res": {
+        "status": 200,
+        "body": {
+          "_id": "69d63f126e607cb746abc205",
+          "name": "User",
+          "email": "user_1775648530482@example.com",
+          "role": "parent",
+          "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5ZDYzZjEyNmU2MDdjYjc0NmFiYzIwNSIsImlhdCI6MTc3NTY0ODUzMCwiZXhwIjoxNzc4MjQwNTMwfQ.96qjaj1ri6rXR-C-gpxJ1c4O3TX4ExSfDO6cCo_n1Xw"
+        }
+      }
+    },
+    {
+      "action": "login_admin",
+      "res": {
+        "status": 200,
+        "body": {
+          "_id": "69d63f126e607cb746abc208",
+          "name": "Admin",
+          "email": "admin_1775648530482@example.com",
+          "role": "admin",
+          "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5ZDYzZjEyNmU2MDdjYjc0NmFiYzIwOCIsImlhdCI6MTc3NTY0ODUzMSwiZXhwIjoxNzc4MjQwNTMxfQ.rIYVnJ29EJIhp8xx7BBS4NzbnGZcwzvdm6-B1w5LOeM"
+        }
+      }
+    },
+    {
+      "action": "create_school",
+      "res": {
+        "status": 201,
+        "body": {
+          "name": "Test School",
+          "overview": "test",
+          "facilities": [],
+          "images": [],
+          "featured": false,
+          "_id": "69d63f136e607cb746abc20d",
+          "createdAt": "2026-04-08T11:42:11.059Z",
+          "updatedAt": "2026-04-08T11:42:11.059Z",
+          "__v": 0
+        }
+      }
+    },
+    {
+      "action": "update_school",
+      "res": {
+        "status": 200,
+        "body": {
+          "_id": "69d63f136e607cb746abc20d",
+          "name": "Test School",
+          "overview": "updated",
+          "facilities": [],
+          "images": [],
+          "featured": false,
+          "createdAt": "2026-04-08T11:42:11.059Z",
+          "updatedAt": "2026-04-08T11:42:11.102Z",
+          "__v": 0
+        }
+      }
+    },
+    {
+      "action": "get_school",
+      "res": {
+        "status": 200,
+        "body": {
+          "_id": "69d63f136e607cb746abc20d",
+          "name": "Test School",
+          "overview": "updated",
+          "facilities": [],
+          "images": [],
+          "featured": false,
+          "createdAt": "2026-04-08T11:42:11.059Z",
+          "updatedAt": "2026-04-08T11:42:11.102Z",
+          "__v": 0
+        }
+      }
+    },
+    {
+      "action": "delete_school",
+      "res": {
+        "status": 500,
+        "body": {
+          "message": "school.remove is not a function",
+          "stack": "TypeError: school.remove is not a function\n    at E:\\Tech Creature solution\\Spot Admission new\\SpotAdmissionAPI\\controllers\\schoolController.js:30:196\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)"
+        }
+      }
+    },
+    {
+      "action": "create_college",
+      "res": {
+        "status": 201,
+        "body": {
+          "location": "City",
+          "_id": "69d63f136e607cb746abc216",
+          "createdAt": "2026-04-08T11:42:11.139Z",
+          "updatedAt": "2026-04-08T11:42:11.139Z",
+          "__v": 0
+        }
+      }
+    },
+    {
+      "action": "update_college",
+      "res": {
+        "status": 200,
+        "body": {
+          "_id": "69d63f136e607cb746abc216",
+          "location": "Town",
+          "createdAt": "2026-04-08T11:42:11.139Z",
+          "updatedAt": "2026-04-08T11:42:11.161Z",
+          "__v": 0
+        }
+      }
+    },
+    {
+      "action": "get_college",
+      "res": {
+        "status": 200,
+        "body": {
+          "_id": "69d63f136e607cb746abc216",
+          "location": "Town",
+          "createdAt": "2026-04-08T11:42:11.139Z",
+          "updatedAt": "2026-04-08T11:42:11.161Z",
+          "__v": 0
+        }
+      }
+    },
+    {
+      "action": "delete_college",
+      "res": {
+        "status": 500,
+        "body": {
+          "message": "item.remove is not a function",
+          "stack": "TypeError: item.remove is not a function\n    at E:\\Tech Creature solution\\Spot Admission new\\SpotAdmissionAPI\\controllers\\collegeController.js:24:194\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)"
+        }
+      }
+    },
+    {
+      "action": "create_video",
+      "res": {
+        "status": 201,
+        "body": {
+          "title": "V1",
+          "url": "http://video",
+          "uploadedBy": "69d63f126e607cb746abc208",
+          "_id": "69d63f136e607cb746abc21f",
+          "createdAt": "2026-04-08T11:42:11.193Z",
+          "updatedAt": "2026-04-08T11:42:11.193Z",
+          "__v": 0
+        }
+      }
+    },
+    {
+      "action": "update_video",
+      "res": {
+        "status": 200,
+        "body": {
+          "_id": "69d63f136e607cb746abc21f",
+          "title": "V1-upd",
+          "url": "http://video",
+          "uploadedBy": "69d63f126e607cb746abc208",
+          "createdAt": "2026-04-08T11:42:11.193Z",
+          "updatedAt": "2026-04-08T11:42:11.209Z",
+          "__v": 0
+        }
+      }
+    },
+    {
+      "action": "get_video",
+      "res": {
+        "status": 200,
+        "body": {
+          "_id": "69d63f136e607cb746abc21f",
+          "title": "V1-upd",
+          "url": "http://video",
+          "uploadedBy": "69d63f126e607cb746abc208",
+          "createdAt": "2026-04-08T11:42:11.193Z",
+          "updatedAt": "2026-04-08T11:42:11.209Z",
+          "__v": 0
+        }
+      }
+    },
+    {
+      "action": "delete_video",
+      "res": {
+        "status": 500,
+        "body": {
+          "message": "v.remove is not a function",
+          "stack": "TypeError: v.remove is not a function\n    at E:\\Tech Creature solution\\Spot Admission new\\SpotAdmissionAPI\\controllers\\videoController.js:22:183\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)"
+        }
+      }
+    },
+    {
+      "action": "create_content",
+      "res": {
+        "status": 201,
+        "body": {
+          "title": "C1",
+          "content": "x",
+          "_id": "69d63f136e607cb746abc228",
+          "createdAt": "2026-04-08T11:42:11.228Z",
+          "updatedAt": "2026-04-08T11:42:11.228Z",
+          "__v": 0
+        }
+      }
+    },
+    {
+      "action": "update_content",
+      "res": {
+        "status": 200,
+        "body": {
+          "_id": "69d63f136e607cb746abc228",
+          "title": "C1",
+          "content": "y",
+          "createdAt": "2026-04-08T11:42:11.228Z",
+          "updatedAt": "2026-04-08T11:42:11.237Z",
+          "__v": 0
+        }
+      }
+    },
+    {
+      "action": "get_content",
+      "res": {
+        "status": 200,
+        "body": {
+          "_id": "69d63f136e607cb746abc228",
+          "title": "C1",
+          "content": "y",
+          "createdAt": "2026-04-08T11:42:11.228Z",
+          "updatedAt": "2026-04-08T11:42:11.237Z",
+          "__v": 0
+        }
+      }
+    },
+    {
+      "action": "delete_content",
+      "res": {
+        "status": 500,
+        "body": {
+          "message": "b.remove is not a function",
+          "stack": "TypeError: b.remove is not a function\n    at E:\\Tech Creature solution\\Spot Admission new\\SpotAdmissionAPI\\controllers\\contentController.js:17:191\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)"
+        }
+      }
+    },
+    {
+      "action": "create_podcast",
+      "res": {
+        "status": 201,
+        "body": {
+          "title": "P1",
+          "guests": [],
+          "_id": "69d63f136e607cb746abc231",
+          "createdAt": "2026-04-08T11:42:11.253Z",
+          "updatedAt": "2026-04-08T11:42:11.253Z",
+          "__v": 0
+        }
+      }
+    },
+    {
+      "action": "update_podcast",
+      "res": {
+        "status": 200,
+        "body": {
+          "_id": "69d63f136e607cb746abc231",
+          "title": "P1u",
+          "guests": [],
+          "createdAt": "2026-04-08T11:42:11.253Z",
+          "updatedAt": "2026-04-08T11:42:11.263Z",
+          "__v": 0
+        }
+      }
+    },
+    {
+      "action": "get_podcast",
+      "res": {
+        "status": 200,
+        "body": {
+          "_id": "69d63f136e607cb746abc231",
+          "title": "P1u",
+          "guests": [],
+          "createdAt": "2026-04-08T11:42:11.253Z",
+          "updatedAt": "2026-04-08T11:42:11.263Z",
+          "__v": 0
+        }
+      }
+    },
+    {
+      "action": "delete_podcast",
+      "res": {
+        "status": 500,
+        "body": {
+          "message": "p.remove is not a function",
+          "stack": "TypeError: p.remove is not a function\n    at E:\\Tech Creature solution\\Spot Admission new\\SpotAdmissionAPI\\controllers\\podcastController.js:17:191\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)"
+        }
+      }
+    },
+    {
+      "action": "create_testimonial",
+      "res": {
+        "status": 201,
+        "body": {
+          "name": "T1",
+          "message": "ok",
+          "_id": "69d63f136e607cb746abc23a",
+          "createdAt": "2026-04-08T11:42:11.284Z",
+          "updatedAt": "2026-04-08T11:42:11.284Z",
+          "__v": 0
+        }
+      }
+    },
+    {
+      "action": "update_testimonial",
+      "res": {
+        "status": 200,
+        "body": {
+          "_id": "69d63f136e607cb746abc23a",
+          "name": "T1",
+          "message": "up",
+          "createdAt": "2026-04-08T11:42:11.284Z",
+          "updatedAt": "2026-04-08T11:42:11.294Z",
+          "__v": 0
+        }
+      }
+    },
+    {
+      "action": "get_testimonial",
+      "res": {
+        "status": 200,
+        "body": {
+          "_id": "69d63f136e607cb746abc23a",
+          "name": "T1",
+          "message": "up",
+          "createdAt": "2026-04-08T11:42:11.284Z",
+          "updatedAt": "2026-04-08T11:42:11.294Z",
+          "__v": 0
+        }
+      }
+    },
+    {
+      "action": "delete_testimonial",
+      "res": {
+        "status": 500,
+        "body": {
+          "message": "t.remove is not a function",
+          "stack": "TypeError: t.remove is not a function\n    at E:\\Tech Creature solution\\Spot Admission new\\SpotAdmissionAPI\\controllers\\testimonialController.js:17:200\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)"
+        }
+      }
+    },
+    {
+      "action": "create_admission",
+      "res": {
+        "status": 201,
+        "body": {
+          "documents": [],
+          "status": "incomplete",
+          "_id": "69d63f136e607cb746abc243",
+          "createdAt": "2026-04-08T11:42:11.333Z",
+          "updatedAt": "2026-04-08T11:42:11.333Z",
+          "__v": 0
+        }
+      }
+    },
+    {
+      "action": "update_admission",
+      "res": {
+        "status": 500,
+        "body": {
+          "message": "Admission validation failed: status: `complete` is not a valid enum value for path `status`.",
+          "stack": "ValidationError: Admission validation failed: status: `complete` is not a valid enum value for path `status`.\n    at Document.invalidate (E:\\Tech Creature solution\\Spot Admission new\\SpotAdmissionAPI\\node_modules\\mongoose\\lib\\document.js:3362:32)\n    at E:\\Tech Creature solution\\Spot Admission new\\SpotAdmissionAPI\\node_modules\\mongoose\\lib\\document.js:3123:17\n    at E:\\Tech Creature solution\\Spot Admission new\\SpotAdmissionAPI\\node_modules\\mongoose\\lib\\schemaType.js:1417:9\n    at process.processTicksAndRejections (node:internal/process/task_queues:85:11)"
+        }
+      }
+    },
+    {
+      "action": "get_admission",
+      "res": {
+        "status": 200,
+        "body": {
+          "_id": "69d63f136e607cb746abc243",
+          "documents": [],
+          "status": "incomplete",
+          "createdAt": "2026-04-08T11:42:11.333Z",
+          "updatedAt": "2026-04-08T11:42:11.333Z",
+          "__v": 0
+        }
+      }
+    },
+    {
+      "action": "delete_admission",
+      "res": {
+        "status": 500,
+        "body": {
+          "message": "admission.remove is not a function",
+          "stack": "TypeError: admission.remove is not a function\n    at E:\\Tech Creature solution\\Spot Admission new\\SpotAdmissionAPI\\controllers\\admissionController.js:17:223\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)"
+        }
+      }
+    },
+    {
+      "action": "create_admissionform",
+      "res": {
+        "status": 201,
+        "body": {
+          "email": "user_1775648530482@example.com",
+          "_id": "69d63f136e607cb746abc24b",
+          "createdAt": "2026-04-08T11:42:11.382Z",
+          "updatedAt": "2026-04-08T11:42:11.382Z",
+          "__v": 0
+        }
+      }
+    },
+    {
+      "action": "update_admissionform",
+      "res": {
+        "status": 200,
+        "body": {
+          "_id": "69d63f136e607cb746abc24b",
+          "email": "upd@example.com",
+          "createdAt": "2026-04-08T11:42:11.382Z",
+          "updatedAt": "2026-04-08T11:42:11.387Z",
+          "__v": 0
+        }
+      }
+    },
+    {
+      "action": "delete_admissionform",
+      "res": {
+        "status": 200,
+        "body": {
+          "message": "Form deleted successfully"
+        }
+      }
+    },
+    {
+      "action": "create_counselingform",
+      "res": {
+        "status": 201,
+        "body": {
+          "email": "user_1775648530482@example.com",
+          "_id": "69d63f136e607cb746abc24f",
+          "createdAt": "2026-04-08T11:42:11.432Z",
+          "updatedAt": "2026-04-08T11:42:11.432Z",
+          "__v": 0
+        }
+      }
+    },
+    {
+      "action": "update_counselingform",
+      "res": {
+        "status": 200,
+        "body": {
+          "_id": "69d63f136e607cb746abc24f",
+          "email": "upd2@example.com",
+          "createdAt": "2026-04-08T11:42:11.432Z",
+          "updatedAt": "2026-04-08T11:42:11.436Z",
+          "__v": 0
+        }
+      }
+    },
+    {
+      "action": "delete_counselingform",
+      "res": {
+        "status": 200,
+        "body": {
+          "message": "Appointment deleted successfully"
+        }
+      }
+    },
+    {
+      "action": "create_counselling_booking",
+      "res": {
+        "status": 201,
+        "body": {
+          "studentName": "S1",
+          "user": "69d63f126e607cb746abc205",
+          "status": "pending",
+          "_id": "69d63f136e607cb746abc254",
+          "createdAt": "2026-04-08T11:42:11.448Z",
+          "updatedAt": "2026-04-08T11:42:11.448Z",
+          "__v": 0
+        }
+      }
+    },
+    {
+      "action": "update_counselling_booking",
+      "res": {
+        "status": 200,
+        "body": {
+          "_id": "69d63f136e607cb746abc254",
+          "studentName": "S1",
+          "user": "69d63f126e607cb746abc205",
+          "status": "confirmed",
+          "createdAt": "2026-04-08T11:42:11.448Z",
+          "updatedAt": "2026-04-08T11:42:11.469Z",
+          "__v": 0
+        }
+      }
+    },
+    {
+      "action": "get_counselling_booking",
+      "res": {
+        "status": 200,
+        "body": {
+          "_id": "69d63f136e607cb746abc254",
+          "studentName": "S1",
+          "user": "69d63f126e607cb746abc205",
+          "status": "confirmed",
+          "createdAt": "2026-04-08T11:42:11.448Z",
+          "updatedAt": "2026-04-08T11:42:11.469Z",
+          "__v": 0
+        }
+      }
+    },
+    {
+      "action": "delete_counselling_booking",
+      "res": {
+        "status": 500,
+        "body": {
+          "message": "b.remove is not a function",
+          "stack": "TypeError: b.remove is not a function\n    at E:\\Tech Creature solution\\Spot Admission new\\SpotAdmissionAPI\\controllers\\counsellingController.js:22:199\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)"
+        }
+      }
+    },
+    {
+      "action": "create_careerform",
+      "res": {
+        "status": 201,
+        "body": {
+          "message": "Form submitted successfully",
+          "form": {
+            "email": "user_1775648530482@example.com",
+            "interests": [],
+            "interventions": [],
+            "_id": "69d63f136e607cb746abc25d",
+            "createdAt": "2026-04-08T11:42:11.488Z",
+            "updatedAt": "2026-04-08T11:42:11.488Z",
+            "__v": 0
+          }
+        }
+      }
+    },
+    {
+      "action": "create_personalizedcounselingform",
+      "res": {
+        "status": 201,
+        "body": {
+          "message": "Form submitted successfully",
+          "form": {
+            "email": "user_1775648530482@example.com",
+            "_id": "69d63f136e607cb746abc25f",
+            "createdAt": "2026-04-08T11:42:11.492Z",
+            "updatedAt": "2026-04-08T11:42:11.492Z",
+            "__v": 0
+          }
+        }
+      }
+    },
+    {
+      "action": "create_preprimaryform",
+      "res": {
+        "status": 201,
+        "body": {
+          "success": true,
+          "message": "Form submitted successfully",
+          "data": {
+            "email": "user_1775648530482@example.com",
+            "counselingTypes": [],
+            "_id": "69d63f136e607cb746abc261",
+            "createdAt": "2026-04-08T11:42:11.497Z",
+            "updatedAt": "2026-04-08T11:42:11.497Z",
+            "__v": 0
+          }
+        }
+      }
+    }
+  ]
+}

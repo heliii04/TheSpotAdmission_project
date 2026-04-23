@@ -1,0 +1,124 @@
+{
+  "Authentication": {
+    "POST /auth/register": {
+      "name": "Admin User",
+      "email": "admin@example.com",
+      "password": "Password123",
+      "role": "admin"
+    },
+    "POST /auth/login": {
+      "email": "admin@example.com",
+      "password": "Password123"
+    },
+    "POST /auth/forgot-password": {
+      "email": "admin@example.com"
+    },
+    "POST /auth/reset-password/:token": {
+      "password": "NewSecurePassword123"
+    }
+  },
+  "Schools_And_Colleges": {
+    "POST /school": {
+      "name": "Greenwood International School",
+      "location": "Bangalore",
+      "curriculum": "CBSE",
+      "overview": "A premium school focusing on holistic development.",
+      "featured": true,
+      "admissionOpen": true,
+      "contact": "+91 9999988888"
+    },
+    "PUT /school/:id": {
+      "featured": false,
+      "admissionOpen": false
+    },
+    "POST /college": {
+      "name": "Modern Institute of Tech",
+      "location": "Mumbai",
+      "courses": ["B.Tech", "M.Tech", "MBA"],
+      "overview": "Leading engineering college with top placements.",
+      "rating": 4.8
+    }
+  },
+  "Form_Submissions": {
+    "POST /contact": {
+      "name": "Jane Smith",
+      "email": "jane@example.com",
+      "phone": "9876543210",
+      "subject": "Admission Query",
+      "message": "I would like to know more about the admission process for 2026."
+    },
+    "POST /careerform": {
+      "name": "John Doe",
+      "email": "john.work@example.com",
+      "phone": "8887776665",
+      "position": "Senior Counselor",
+      "experience": "5 Years",
+      "resumeLink": "http://drive.google.com/resume"
+    },
+    "POST /admissionform": {
+      "studentName": "Rahul Kumar",
+      "fatherName": "Rajesh Kumar",
+      "class": "10th",
+      "previousSchool": "DPS Delhi",
+      "email": "rahul.parent@example.com"
+    },
+    "POST /personalizedcounselingform": {
+      "name": "Amit Sharma",
+      "email": "amit@example.com",
+      "phone": "7778889991",
+      "interestedCourse": "Computer Science",
+      "currentEducation": "12th Standard"
+    },
+    "POST /counselingform": {
+      "name": "Sarah Connor",
+      "email": "sarah@example.com",
+      "phone": "9988776655",
+      "date": "2026-05-10",
+      "time": "10:00 AM"
+    },
+    "POST /preprimaryform": {
+      "childName": "Baby Doe",
+      "parentName": "John Doe",
+      "age": 4,
+      "contact": "9876543210"
+    }
+  },
+  "Content_And_Counselling": {
+    "POST /video": {
+      "title": "Campus Tour 2026",
+      "url": "https://www.youtube.com/watch?v=example",
+      "category": "Campus",
+      "description": "A virtual tour of our state-of-the-art campus."
+    },
+    "POST /podcast": {
+      "title": "Future of Education",
+      "audioUrl": "https://spotify.com/podcast/123",
+      "host": "Dr. Sarah Miller",
+      "description": "Discussing industry trends with leading experts."
+    },
+    "POST /testimonial": {
+      "name": "Arjun Singh",
+      "role": "Parent",
+      "message": "The Spot Admission helped my son find the perfect college.",
+      "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=Arjun"
+    },
+    "POST /counselling": {
+      "service": "Career Counselling",
+      "description": "Need guidance for selecting MBA specializations.",
+      "date": "2026-04-15"
+    },
+    "POST /content": {
+      "title": "Home Page Banner",
+      "content": "Welcome to The Spot Admission Portal",
+      "type": "heading"
+    }
+  },
+  "Administration": {
+    "POST /admission": {
+      "school": "65f1234567890abcdef12345",
+      "college": "65f1234567890abcdef12346",
+      "status": "pending",
+      "notes": "Waiting for document verification."
+    }
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "createVideo": {
+    "title": "Campus Tour 2026",
+    "url": "https://www.youtube.com/watch?v=example",
+    "category": "Campus",
+    "description": "A virtual tour of our state-of-the-art campus."
+  },
+  "createPodcast": {
+    "title": "Future of Education",
+    "audioUrl": "https://spotify.com/podcast/123",
+    "host": "Dr. Sarah Miller",
+    "description": "Discussing industry trends with leading experts."
+  },
+  "createTestimonial": {
+    "name": "Arjun Singh",
+    "role": "Parent",
+    "message": "The Spot Admission helped my son find the perfect college. Highly recommended!",
+    "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=Arjun"
+  }
+}

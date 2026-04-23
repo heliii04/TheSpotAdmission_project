@@ -1,0 +1,18 @@
+{
+  "createSchool": {
+    "name": "Greenwood International School",
+    "location": "Bangalore",
+    "curriculum": "CBSE",
+    "overview": "A premium school focusing on holistic development.",
+    "featured": true,
+    "admissionOpen": true,
+    "contact": "+91 9999988888"
+  },
+  "createCollege": {
+    "name": "Modern Institute of Tech",
+    "location": "Mumbai",
+    "courses": ["B.Tech", "M.Tech", "MBA"],
+    "overview": "Leading engineering college with top placements.",
+    "rating": 4.8
+  }
+}

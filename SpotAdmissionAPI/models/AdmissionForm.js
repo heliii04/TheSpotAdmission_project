@@ -38,6 +38,8 @@ const AdmissionFormSchema = new mongoose.Schema({
   remarks: String,
   applicantDate: String,
   parentDate: String,
+  verificationStatus: { type: String, default: "Pending" },
+  admissionStatus: { type: String, default: "Locked" },
 }, { timestamps: true });
 
 module.exports = mongoose.model("AdmissionForm", AdmissionFormSchema);

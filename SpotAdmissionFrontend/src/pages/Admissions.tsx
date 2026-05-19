@@ -1,7 +1,9 @@
 import { FileText, CheckCircle, Users, Download, Calendar, AlertCircle, BookOpen, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const Admissions = () => {
+  const navigate = useNavigate();
   const admissionSteps = [
     {
       phase: "Pre-Primary (Ages 2-6)",
@@ -251,7 +253,10 @@ const Admissions = () => {
               Our experts are ready to handle the stress of admissions while you focus on your future.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
-              <button className="bg-white text-indigo-600 px-8 py-4 rounded-2xl font-bold hover:bg-indigo-50 transition-colors shadow-lg">
+              <button 
+                onClick={() => navigate('/contact')}
+                className="bg-white text-indigo-600 px-8 py-4 rounded-2xl font-bold hover:bg-indigo-50 transition-colors shadow-lg"
+              >
                 Book Consultation
               </button>
               <button className="bg-indigo-500 border border-indigo-400 px-8 py-4 rounded-2xl font-bold hover:bg-indigo-400 transition-colors">

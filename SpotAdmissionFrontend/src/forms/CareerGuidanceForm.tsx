@@ -32,9 +32,8 @@ const [formData, setFormData] = useState(initialData);
 
   // Required fields list
   const requiredFields = [
-    "fullName", "contact", "email", 
-    "address", "pincode", 
-    "boardName",
+    "fullName","gender", "contact", "email", 
+    "address", "city", "pincode", "currentclass", "boardName", "Strength", "Weak", "Rate", "CareerOption",  "longterm",
   ];
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {

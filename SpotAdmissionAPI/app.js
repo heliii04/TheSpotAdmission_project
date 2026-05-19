@@ -1,7 +1,11 @@
 const express = require("express");
 const cors = require("cors");
 const dotenv = require("dotenv");
+const morgan = require("morgan");
+const helmet = require("helmet");
+const rateLimit = require("express-rate-limit");
 const errorHandler = require("./middleware/errorHandler");
+const myFormsRoute = require("./routes/myFormsRoute");
 
 // Route imports
 const authRoutes = require("./routes/authRoutes");
@@ -23,13 +27,23 @@ const prePrimaryRoutes = require("./routes/prePrimaryRoutes");
 const app = express();
 
 // Middlewares
+app.use(helmet()); 
+app.use(morgan("dev"));
 app.use(
   cors({
-    origin: "http://localhost:5173",
+    origin: process.env.CLIENT_URL || "http://localhost:5173",
     credentials: true,
   }),
 );
 app.use(express.json());
+
+// Rate Limiting (Brute force protection)
+const limiter = rateLimit({
+  windowMs: 15 * 60 * 1000, 
+  max: 100, 
+  message: "Too many requests from this IP, please try again later.",
+});
+app.use("/auth/login", limiter);
 
 app.get("/", (req, res) => res.send("The Spot Admission API is running"));
 
@@ -49,6 +63,7 @@ app.use("/admissionform", admissionFormRoutes);
 app.use("/counselingform", counselingFormRoutes);
 app.use("/personalizedcounselingform", personalizedCounselingRoutes);
 app.use("/preprimaryform", prePrimaryRoutes);
+app.use("/myforms", myFormsRoute);
 
 // Error Handler
 app.use(errorHandler);

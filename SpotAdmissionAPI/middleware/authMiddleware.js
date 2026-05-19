@@ -36,14 +36,24 @@ const protect = asyncHandler(async (req, res, next) => {
   }
 });
 
-// Admin middleware
+// Admin middleware (Kept for backward compatibility)
 const admin = (req, res, next) => {
   if (req.user && req.user.role === "admin") {
     return next();
   }
-
   res.status(403);
   throw new Error("Not authorized as admin");
 };
 
-module.exports = { protect, admin };
+// Generic Role-based middleware
+const authorize = (...roles) => {
+  return (req, res, next) => {
+    if (req.user && roles.includes(req.user.role)) {
+      return next();
+    }
+    res.status(403);
+    throw new Error(`Not authorized. Role '${req.user?.role}' does not have permission.`);
+  };
+};
+
+module.exports = { protect, admin, authorize };

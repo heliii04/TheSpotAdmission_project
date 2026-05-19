@@ -6,17 +6,18 @@ const {
   updateAppointment,
   deleteAppointment,
 } = require("../controllers/counselingFormController");
+const { protect, authorize } = require("../middleware/authMiddleware");
 
 // CREATE
 router.post("/", createAppointment);
 
-// READ ALL
-router.get("/", getAppointments);
+// READ ALL (Admin/Counsellor only)
+router.get("/", protect, authorize('admin', 'counsellor'), getAppointments);
 
 // UPDATE
-router.put("/:id", updateAppointment);
+router.put("/:id", protect, authorize('admin', 'counsellor'), updateAppointment);
 
 // DELETE
-router.delete("/:id", deleteAppointment);
+router.delete("/:id", protect, authorize('admin'), deleteAppointment);
 
 module.exports = router;

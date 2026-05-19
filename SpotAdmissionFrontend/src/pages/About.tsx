@@ -45,7 +45,7 @@ const About = () => {
             Our Story & Vision
           </span>
           <h1 className="text-4xl md:text-6xl font-black text-white mb-6 tracking-tight">
-            The Spot <span className="text-indigo-400">Admission</span>
+            The <span className="text-indigo-400">Spot</span> Admission
           </h1>
           <p className="text-xl text-indigo-100 max-w-3xl mx-auto leading-relaxed font-medium">
             Empowering students and parents with expert educational guidance since 2016. We don't just find colleges; we build careers.

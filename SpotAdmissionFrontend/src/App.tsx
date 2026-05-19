@@ -17,15 +17,14 @@ import Register from './components/Register.tsx';
 import Login from './components/Login.tsx';
 import ForgotPassword from "./components/ForgotPassword.tsx";
 import ResetPassword from "./components/ResetPassword.tsx";
-// import Dashboard from './components/layout/Dashboard.tsx';
-import AdminApplicationTable from "./components/layout/AdminApplicationTable.tsx";
+import Dashboard from './components/layout/Dashboard.tsx';
+import UserDashboard from './components/layout/UserDashboard.tsx';
+import AdminDashboard from "./components/layout/AdminDashboard.tsx";
 import CollegeAdmissionForm from './forms/CollegeAdmissionForm';
 import PrePrimarytoHigherForm from './forms/PrePrimarytoHigherForm';
 import PersonalizedCounselingForm from './forms/PersonalizedCounselingForm';
 import CounselingAppointmentForm from './forms/CounselingAppointmentForm';
 import CareerGuidanceForm from './forms/CareerGuidanceForm';
-import AdminDashboard from './components/layout/AdminDashboard';
-import StudentDashboard from './components/layout/StudentDashboard.tsx';
 
 // tables 
 import CareerTable from './forms/CareerTable';
@@ -33,11 +32,14 @@ import CollegeAdmissionTable from './forms/CollegeAdmissionTable';
 import CounselingTable from './forms/CounselingAppointmentTable';
 import PersonalizedCounselingTable from './forms/PersonalizedCounselingTable';
 import PrePrimaryTable from './forms/PrePrimarytoHigherTable';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   return (
     <Router>
       <div className="min-h-screen bg-gray-50">
+        <ToastContainer position="top-right" autoClose={3000} />
         <Header />
         <main>
           <Routes>
@@ -46,11 +48,10 @@ function App() {
             <Route path="/login" element={<Login />} />     
             <Route path="/forgot-password" element={<ForgotPassword />} />
             <Route path="/reset-password/:token" element={<ResetPassword />} />
-            {/* <Route path="/dashboard" element={<Dashboard />} /> */}
-              <Route path="/admin-dashboard" element={<AdminDashboard />} />
-              <Route path="/student-dashboard" element={<StudentDashboard />} />
-            <Route path="/admin/applications" element={<AdminApplicationTable />} />
-            <Route path="/AdminApplicationTable" element={<AdminApplicationTable />} />
+            <Route path="/Dashboard" element={<Dashboard />} />
+            <Route path="/UserDashboard" element={<UserDashboard />} />
+            {/* <Route path="/admin/applications" element={<AdminUserDashboard />} /> */}
+            <Route path="/AdminUserDashboard" element={<AdminDashboard />} />
             <Route path="/college-admission" element={<AdmissionForm />} />
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />

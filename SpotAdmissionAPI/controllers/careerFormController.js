@@ -49,10 +49,9 @@ exports.createCareerForm = async (req, res) => {
                 <p style="margin: 5px 0 0; font-size: 14px; opacity: 0.9;">Guidance. Clarity. Confidence.</p>
               </div>
               
-              <div style="background-color: ${brandColor}; padding: 25px; text-align: center; color: white;">
-                <h1 style="margin: 0; font-size: 20px; letter-spacing: 1px;">THE SPOT ADMISSION</h1>
-                <p style="margin: 5px 0 0; font-size: 14px; opacity: 0.9;">Guidance. Clarity. Confidence.</p>
-              </div>
+              <div style="padding: 30px; color: #374151; line-height: 1.6;">
+                <p>Dear <strong>${fullName || "Student/Parent"}</strong>,</p>
+                <p>Thank you for reaching out. We have successfully received your request for academic and career counselling for <strong>${currentclass}</strong>.</p>
                 
                 <div style="background-color: #f9fafb; padding: 15px; border-radius: 6px; margin: 20px 0; border-left: 4px solid ${brandColor};">
                   <p style="margin: 0; font-size: 14px;"><strong>Reference ID:</strong> #${newForm._id.toString().slice(-6).toUpperCase()}</p>
@@ -63,7 +62,7 @@ exports.createCareerForm = async (req, res) => {
                 Our senior counsellor will review your profile and contact you at <strong>${contact}</strong> within 24-48 hours to schedule your session.</p>
                 
                 <div style="text-align: center; margin-top: 30px;">
-                  <a href="http://localhost:5173/student-dashboard" style="background-color: ${brandColor}; color: white; padding: 12px 25px; text-decoration: none; border-radius: 5px; font-weight: bold; display: inline-block;">View Application Status</a>
+                  <a href="http://localhost:5173/dashboard" style="background-color: ${brandColor}; color: white; padding: 12px 25px; text-decoration: none; border-radius: 5px; font-weight: bold; display: inline-block;">View Application Status</a>
                 </div>
               </div>
 
@@ -144,4 +143,3 @@ exports.deleteCareerForm = async (req, res) => {
     res.status(500).json({ message: "Error deleting form", error: error.message });
   }
 };
-

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import axiosInstance from "../api/Api";
 import { Eye, EyeOff } from "lucide-react";
+import { toast } from "react-toastify";
 
 const Register: React.FC = () => {
   const navigate = useNavigate();
@@ -9,10 +10,11 @@ const Register: React.FC = () => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
-    password: "",
-    role: "",
+    role: "student", // Default role
     phone: "",
   });
+
+  const [loading, setLoading] = useState(false);
 
   const [errors, setErrors] = useState<any>({});
   const [successMsg, setSuccessMsg] = useState("");
@@ -35,14 +37,9 @@ const Register: React.FC = () => {
       newErrors.email = "Only @gmail.com addresses are allowed";
     }
 
-    // 3. Password: Must be exactly 8 characters
-    if (formData.password.length !== 8) {
-      newErrors.password = "Password must be exactly 8 characters long";
-    }
-
-    // 4. Role
-    if (!formData.role || formData.role === " ") {
-      newErrors.role = "Please select a valid role";
+    // 3. Email: Must end with @gmail.com
+    if (!formData.email.endsWith("@gmail.com")) {
+      newErrors.email = "Only @gmail.com addresses are allowed";
     }
 
     setErrors(newErrors);
@@ -59,23 +56,28 @@ const Register: React.FC = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSuccessMsg("");
-
     if (!validate()) return;
-
+    setLoading(true);
     try {
-      await axiosInstance.post("/auth/register", formData);
-      setSuccessMsg("🎉 Registration successful! Redirecting to login...");
+      const res = await axiosInstance.post("/auth/register", formData);
+      
+      if (res.data.alreadyExists) {
+        toast.info("Account already exists. Sending login reminder...");
+      } else {
+        toast.success("🎉 Account created! Login credentials sent to your email.");
+      }
 
       setTimeout(() => {
         navigate("/login");
-      }, 2000);
+      }, 3000);
 
-      setFormData({ name: "", email: "", password: "", role: "", phone: "" });
+      setFormData({ name: "", email: "", role: "student", phone: "" });
     } catch (error: any) {
       console.error(error);
       const errorMsg = error.response?.data?.message || "Registration failed. Please try again.";
-      alert(`❌ ${errorMsg}`);
+      toast.error(errorMsg);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -88,14 +90,7 @@ const Register: React.FC = () => {
           <p className="text-gray-500 mt-3 text-lg">Join us and start your journey today!</p>
         </div>
 
-        {/* Success Message Pop-up Style */}
-        {successMsg && (
-          <div className="mb-6 p-4 bg-green-100 text-green-700 border border-green-200 rounded-2xl text-center font-bold animate-bounce">
-            {successMsg}
-          </div>
-        )}
-
-        <form onSubmit={handleSubmit} className="space-y-5">
+        <form onSubmit={handleSubmit} className="space-y-6">
           {/* Full Name */}
           <div>
             <label className="block text-sm font-bold text-gray-700 mb-2 ml-1">Full Name</label>
@@ -110,27 +105,6 @@ const Register: React.FC = () => {
               }`}
             />
             {errors.name && <p className="text-red-500 text-xs mt-1 ml-2 font-semibold">{errors.name}</p>}
-          </div>
-
-          {/* Role Selection */}
-          <div>
-            <label className="block text-sm font-bold text-gray-700 mb-2 ml-1">Select Your Role</label>
-            <select
-              name="role"
-              value={formData.role}
-              onChange={handleChange}
-              className={`w-full px-4 py-3.5 border rounded-2xl outline-none transition-all ${
-                errors.role ? "border-red-500 bg-red-50" : "border-gray-200 bg-gray-50/50 focus:ring-blue-100 focus:border-blue-500 focus:ring-4"
-              }`}
-            >
-              <option value="">Select</option>
-              <option value="parent">Parent</option>
-              {/* <option value="school">school</option> */}
-              <option value="student">Student</option>
-              <option value="counsellor">Counsellor</option>
-              <option value="admin">Admin</option>
-            </select>
-            {errors.role && <p className="text-red-500 text-xs mt-1 ml-2 font-semibold">{errors.role}</p>}
           </div>
 
           {/* Email Address */}
@@ -149,37 +123,12 @@ const Register: React.FC = () => {
             {errors.email && <p className="text-red-500 text-xs mt-1 ml-2 font-semibold">{errors.email}</p>}
           </div>
 
-          {/* Password */}
-          <div>
-            <label className="block text-sm font-bold text-gray-700 mb-2 ml-1">Password (8 characters)</label>
-            <div className="relative">
-              <input
-                type={showPassword ? "text" : "password"}
-                name="password"
-                placeholder="••••••••"
-                value={formData.password}
-                onChange={handleChange}
-                className={`w-full px-4 py-3.5 border rounded-2xl outline-none transition-all pr-12 ${
-                  errors.password ? "border-red-500 bg-red-50 focus:ring-red-100" : "border-gray-200 bg-gray-50/50 focus:ring-blue-100 focus:border-blue-500 focus:ring-4"
-                }`}
-              />
-              <button
-                type="button"
-                onClick={() => setShowPassword(!showPassword)}
-                className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-500 hover:text-gray-700 focus:outline-none"
-                style={{ top: '50%' }}
-              >
-                {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
-              </button>
-            </div>
-            {errors.password && <p className="text-red-500 text-xs mt-1 ml-2 font-semibold">{errors.password}</p>}
-          </div>
-
           <button
             type="submit"
-            className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-black py-4 rounded-2xl shadow-xl transform transition hover:-translate-y-1 active:scale-95 text-lg mt-4"
+            disabled={loading}
+            className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-black py-4 rounded-2xl shadow-xl transform transition hover:-translate-y-1 active:scale-95 text-lg mt-4 disabled:opacity-50"
           >
-            Create My Account
+            {loading ? "Registering..." : "Register & Get Login Info"}
           </button>
         </form>
 
